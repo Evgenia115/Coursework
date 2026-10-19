@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Віртуальний музей — Рубель</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f9f5f3; 
+            color: #4a3b32;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            color: #5c4033;
+            margin-bottom: 5px;
+        }
+		
+        header p {
+            color: #a08c83;
+            font-size: 1.1em;
+        }
+
+        .artifact-card {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 6px 20px rgba(181, 131, 141, 0.1);
+            border: 2px solid #ecd5d8; 
+            padding: 30px;
+        }
+
+        .artifact-title {
+            font-size: 2.1em;
+            color: #8e5b66;
+            border-bottom: 2px solid #f7ecef;
+            padding-bottom: 18px;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+        .artifact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 35px;
+        }
+
+        @media (max-width: 768px) {
+            .artifact-grid {
+                grid-template-columns: 1fr; 
+            }
+        }
+
+        .info-section h3 {
+            color: #9c6b73;
+            margin-top: 0;
+            margin-bottom: 10px;
+            font-size: 1.2em;
+            border-left: 4px solid #d9aeb4;
+            padding-left: 12px;
+        }
+
+        .info-section p {
+            margin-top: 0;
+            margin-bottom: 25px;
+            text-align: justify;
+			color: #5a4b43;
+        }
+        .media-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background: #fbf8f7;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px dashed #e3dec3;
+        }
+
+        .media-box {
+            text-align: center;
+        }
+
+        .media-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            border: 1px solid #e0d1d4;
+			box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+        }
+
+        .dimensions {
+            font-size: 0.95em;
+            color: #5a4b43;
+            background:#ffffff;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #eee;
+        }
+
+        .dimensions ul {
+            margin: 5px 0 0 0;
+            padding-left: 20px;
+            text-align: left;
+        }
+        .btn-3d {
+            display: inline-block;
+            background-color: #8e5b66;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+            text-align: center;
+			box-shadow: 0 4px 10px rgba(142, 91, 102, 0.3);
+        }
+
+        .btn-3d:hover {
+            background-color: #7a5059;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            color: #8e5b66;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+		    color: #c0949d;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Віртуальний музей предметів побуту</h1>
+        <p>Розділ: Побут та хатнє начиння</p>
+    </header>
+    <main>
+        <div class="artifact-card">
+            <h2 class="artifact-title">5. Рубель</h2>
+            <div class="artifact-grid">
+                <div class="text-content">
+                    <div class="info-section">
+                        <h3>Опис</h3>
+                        <p>Товста вузька дерев'яна дошка, один кінець якої був вирізаний у формі ручки. Решта дошки називається плече, одна її сторона вирізалася зубцями у формі трикутних призм, другу сторону могли залишати гладенькою чи оздоблювати різьбленням.</p>
+                    </div>
+                    <div class="info-section">
+                        <h3>Призначення</h3>
+                        <p>Рубель — старовинний прилад для прасування білизни. До середини XX століття він залишався основним інструментом для прасування в українських домівках.</p>
+                    </div>
+
+                    <div class="info-section">
+                        <h3>Цікаві факти</h3>
+                        <p>Хтось колись помітив, що якщо провести паличкою чи дерев'яною ложкою по зубцях рубеля, виходить гучний і характерний тріскучий звук. Так рубель став популярним народним ударним інструментом. Музичний рубель був пустотілим, а рубель побутовий цільний. З одного боку музичного рубеля висвердлювалася порожнина. За розміром музичний рубель був коротшим за побутовий, зубці його мали гостріші грані.</p>
+                    </div>
+                </div>
+                <div class="media-section">
+                    <div class="media-box">
+                        <h3>Фото предмета</h3>
+                        <img src="rybel.png" alt="Рубелі">
+                    </div>
+                    <div class="media-box">
+                        <h3>3D-модель</h3>
+                        <p style="font-size: 0.9em; color: #666; margin-bottom: 10px;">Ви можете переглянути об'ємну модель предмета:</p>
+                        <a href="#" target="_blank" class="btn-3d">Відкрити 3D-модель</a>
+                    </div>
+                    <div class="dimensions">
+                        <strong>Розміри моделі:</strong>
+                        <ul>
+                            <li><strong>Матеріали:</strong> деревина</li>
+							<li><strong>Довжина:</strong> 58 см </li> 
+							<li><strong>Ширина:</strong> 7 см </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="index.html" class="back-link"> Повернутися до головної сторінки музею</a>
+    </main>
+</body>
+</html>
