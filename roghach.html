@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Віртуальний музей — Рогач</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #f7f4ed; 
+            color: #2c2c2c;
+            margin: 0;
+            padding: 20px;
+            line-height: 1.6;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+
+        header h1 {
+            color: #4a3b32;
+            margin-bottom: 5px;
+        }
+		
+        header p {
+            color: #7d6b5d;
+            font-size: 1.1em;
+        }
+
+        .artifact-card {
+            max-width: 900px;
+            margin: 0 auto;
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+            border: 2px solid #e3dec3; 
+            padding: 30px;
+        }
+
+        .artifact-title {
+            font-size: 2em;
+            color: #5c4033;
+            border-bottom: 2px solid #f0e6d2;
+            padding-bottom: 15px;
+            margin-top: 0;
+            margin-bottom: 25px;
+        }
+        .artifact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+
+        @media (max-width: 768px) {
+            .artifact-grid {
+                grid-template-columns: 1fr; 
+            }
+        }
+
+        .info-section h3 {
+            color: #6b4f4f;
+            margin-top: 0;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+            border-left: 4px solid #b5838d;
+            padding-left: 10px;
+        }
+
+        .info-section p {
+            margin-top: 0;
+            margin-bottom: 20px;
+            text-align: justify;
+        }
+        .media-section {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            background: #faf8f5;
+            padding: 20px;
+            border-radius: 8px;
+            border: 1px dashed #d1c7b7;
+        }
+
+        .media-box {
+            text-align: center;
+        }
+
+        .media-box img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 6px;
+            border: 1px solid #ddd;
+        }
+
+        .dimensions {
+            font-size: 0.95em;
+            color: #555;
+            background: #fff;
+            padding: 10px;
+            border-radius: 6px;
+            border: 1px solid #eee;
+        }
+
+        .dimensions ul {
+            margin: 5px 0 0 0;
+            padding-left: 20px;
+            text-align: left;
+        }
+        .btn-3d {
+            display: inline-block;
+            background-color: #8d6b5d;
+            color: white;
+            padding: 10px 15px;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: background 0.3s;
+            text-align: center;
+        }
+
+        .btn-3d:hover {
+            background-color: #6b4f4f;
+        }
+        .back-link {
+            display: block;
+            text-align: center;
+            margin-top: 30px;
+            color: #7d6b5d;
+            text-decoration: none;
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Віртуальний музей предметів побуту</h1>
+        <p>Розділ: Кухонне начиння</p>
+    </header>
+    <main>
+        <div class="artifact-card">
+            <h2 class="artifact-title">1. Рогач (ухват)</h2>
+            <div class="artifact-grid">
+                <div class="text-content">
+                    <div class="info-section">
+                        <h3>Опис</h3>
+                        <p>Складається з металевого півкільця з двома металевими закругленими кінцями, до якого кріпиться дерев'яний держак — рогачилно. Рогачі на довгих рогачилнах використовували для приготування їжі в печах. Нижня частина горщика або чавуна є вузькою біля денця і дедалі розширюється догори — це уможливлює насаджувати його на рогач, міцно утримуючи кінцями. Зазвичай у господарстві було кілька рогачів різних розмірів — кожному горщикові відповідав «свій» рогач.</p>
+                    </div>
+                    <div class="info-section">
+                        <h3>Призначення</h3>
+                        <p>Рогач — це традиційне хатнє начиння, призначене для захоплення, встановлення в піч та виймання з неї гарячого посуду.</p>
+                    </div>
+
+                    <div class="info-section">
+                        <h3>Цікаві факти</h3>
+                        <p>На Чернігівщині рогач, прикрашений квітами, стрічками та житом, слугував головним атрибутом старшого дружка, який стежив за порядком на весіллі. На Східній Слобожанщині мати молодого дарувала невістці звичайний рогач разом із кочергою, бажаючи щастя та здоров'я.</p>
+                    </div>
+                </div>
+                <div class="media-section">
+                    <div class="media-box">
+                        <h3>Фото предмета</h3>
+                        <img src="rogach.jpg" alt="Рогач (ухват)">
+                    </div>
+                    <div class="media-box">
+                        <h3>3D-модель</h3>
+                        <p style="font-size: 0.9em; color: #666; margin-bottom: 10px;">Ви можете переглянути об'ємну модель предмета:</p>
+                        <a href="#" target="_blank" class="btn-3d">Відкрити 3D-модель</a>
+                    </div>
+                    <div class="dimensions">
+                        <strong>Розміри моделі:</strong>
+                        <ul>
+                            <li><strong>Матеріали:</strong> метал (рогатинок), дерево (держак / рогачилно)</li>
+							<li><strong>Довжина</strong> 116 см, <strong>ширина</strong> 2,5 см, <strong>висота</strong> 1 см, <strong>діаметр</strong> 3 см. </li> 
+							<li> <strong>Металева частина:</strong> довжина 35.5 см, ширина 20 см </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <a href="index.html" class="back-link"> Повернутися до головної сторінки музею</a>
+    </main>
+</body>
+</html>
