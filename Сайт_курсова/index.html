@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Віртуальний музей предметів, що вийшли з ужитку</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --bg-color: #fcf8f5;           
+            --card-bg: #ffffff;           
+            --primary-text: #3d312a;       
+            --accent-pink: #d8a7b1;        
+            --accent-pink-hover: #c48b97;  
+            --dusty-rose: #8e5b66;        
+            --border-color: #eae0d5;      
+            --footer-bg: #5a3d46;         
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--primary-text);
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        nav {
+            background-color: #ffffff;
+            border-bottom: 2px solid var(--border-color);
+            padding: 0 40px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.03);
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .nav-container {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            height: 70px;
+        }
+
+        .logo {
+            font-size: 1.3em;
+            font-weight: bold;
+            color: var(--dusty-rose);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-links {
+            list-style: none;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            gap: 20px;
+        }
+
+        .nav-links li {
+            position: relative;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--primary-text);
+            font-weight: 600;
+            padding: 10px 15px;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background-color: #f7ecef;
+            color: var(--dusty-rose);
+        }
+        .dropdown-menu {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: #ffffff;
+            min-width: 280px;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 12px 0;
+            list-style: none;
+            z-index: 100;
+        }
+
+        .dropdown:hover .dropdown-menu {
+            display: block;
+        }
+
+        .dropdown-header {
+            padding: 8px 20px 4px 20px;
+            font-size: 0.85em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--dusty-rose);
+            font-weight: bold;
+            border-bottom: 1px dashed var(--border-color);
+            margin-bottom: 5px;
+        }
+
+        .dropdown-menu li a {
+            display: block;
+            padding: 8px 20px;
+            font-weight: normal;
+            font-size: 0.95em;
+            color: var(--primary-text);
+            border-radius: 0;
+        }
+
+        .dropdown-menu li a:hover {
+            background-color: #fceef1;
+            color: var(--dusty-rose);
+            padding-left: 25px;
+        }
+
+        .hero {
+            background: linear-gradient(135deg, #fceef1 0%, #f4e3e6 100%);
+            padding: 60px 20px;
+            text-align: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .hero h1 {
+            font-size: 2.4em;
+            color: var(--dusty-rose);
+            margin-bottom: 15px;
+        }
+
+        .hero p {
+            font-size: 1.2em;
+            max-width: 750px;
+            margin: 0 auto 25px auto;
+            color: #5a4b43;
+        }
+
+        .hero-btn {
+            display: inline-block;
+            background-color: var(--accent-pink);
+            color: #ffffff;
+            padding: 12px 28px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 10px rgba(216, 167, 177, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .hero-btn:hover {
+            background-color: var(--accent-pink-hover);
+            transform: translateY(-2px);
+        }
+
+        main {
+            max-width: 1000px;
+            margin: 40px auto;
+            padding: 0 20px;
+            flex: 1;
+        }
+
+        .intro-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            padding: 35px;
+            border: 2px solid #f2e3e6;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+            margin-bottom: 40px;
+        }
+
+        .intro-card h2 {
+            color: var(--dusty-rose);
+            margin-top: 0;
+            border-bottom: 2px solid #fceef1;
+            padding-bottom: 10px;
+        }
+        footer {
+            background-color: var(--footer-bg);
+            color: #f7ecef;
+            padding: 40px 20px 20px 20px;
+            margin-top: auto;
+        }
+
+        .footer-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .footer-title {
+            font-size: 1.3em;
+            font-weight: bold;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+            padding-bottom: 10px;
+            margin-bottom: 25px;
+            color: #ffffff;
+        }
+
+        .footer-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-bottom: 30px;
+        }
+
+        .footer-block {
+            display: flex;
+            align-items: flex-start;
+            gap: 15px;
+        }
+
+        .footer-block i {
+            font-size: 2em;
+            color: var(--accent-pink);
+            margin-top: 5px;
+        }
+
+        .footer-block h3 {
+            margin: 0 0 8px 0;
+            font-size: 1.1em;
+            color: #ffffff;
+        }
+
+        .footer-block p {
+            margin: 0;
+            font-size: 0.95em;
+            color: #e3d2d6;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 0.9em;
+            color: #c9b3b8;
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-landmark"></i> Віртуальний Музей
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Головна</a></li>
+                <li class="dropdown">
+                    <a href="#">Картки предметів <i class="fa-solid fa-chevron-down" style="font-size: 0.8em;"></i></a>
+                    <ul class="dropdown-menu">
+                        <li class="dropdown-header">Кухонне начиння</li>
+                        <li><a href="roghach.html">Рогач (ухват)</a></li>
+                        <li><a href="#">Коцюба</a></li>
+                        <li><a href="#">Макітра</a></li>
+                        <li><a href="#">Масничка</a></li>
+                        <li><a href="#">Дійниця</a></li>
+                        <li><a href="#">Бербениця</a></li>
+                        <li><a href="#">Хлібна діжа</a></li>
+                        <li><a href="#">Глиняний глечик</a></li>
+                        
+                        <li class="dropdown-header">Побут та хатнє начиння</li>
+                        <li><a href="#">Коромисло</a></li>
+                        <li><a href="#">Ночви дерев'яні</a></li>
+                        <li><a href="#">Жлукто</a></li>
+                        <li><a href="#">Прядка</a></li>
+                        <li><a href="#">Рубель</a></li>
+                        <li><a href="#">Свічкогас</a></li>
+                        <li><a href="#">Ліхтарня</a></li>
+                        <li><a href="#">Топірець (бартка)</a></li>
+                    </ul>
+                </li>
+                
+                <li><a href="#">Про проєкт</a></li>
+            </ul>
+        </div>
+    </nav>
+    <header class="hero">
+        <h1>Віртуальний музей предметів, що вийшли з ужитку</h1>
+        <p>Інтерактивна колекція автентичних предметів традиційного українського побуту та кухонного начиння з 3D-моделями</p>
+        <a href="#" class="hero-btn">Перейти до експозиції</a>
+    </header>
+    <main>
+        <div class="intro-card">
+            <h2>Ласкаво просимо до нашого музею!</h2>
+            <p>Цей віртуальний простір створено для того, щоб зберегти пам'ять про унікальні речі, які протягом століть слугували нашим предкам у повсякденному житті, але з часом поступилися місцем сучасним технологіям.</p>
+            <p>У нашій колекції ви зможете не лише детально ознайомитися з описом, призначенням та етнографічними цікавинками кожного предмета, а й роздивитися їхні об'ємні 3D-моделі.</p>
+        </div>
+    </main>
+    <footer>
+        <div class="footer-container">
+            <div class="footer-title">Загальні відомості про проєкт</div>
+            
+            <div class="footer-grid">
+                <div class="footer-block">
+                    <i class="fa-solid fa-user-graduate"></i>
+                    <div>
+                        <h3>Автор проєкту</h3>
+                        <p>Головчанська Євгенія Дмитрівна</p>
+                        <p>10-В</p>
+                    </div>
+                </div>
+                <div class="footer-block">
+                    <i class="fa-solid fa-chalkboard-user"></i>
+                    <div>
+                        <h3>Науковий керівник</h3>
+                        <p>Пасько Анатолій Іванович</p>
+                        <p>Кафедра інформатики</p>
+                    </div>
+                </div>
+
+                <div class="footer-block">
+                    <i class="fa-solid fa-school"></i>
+                    <div>
+                        <h3>Навчальний заклад</h3>
+                        <p>Дніпровський науковий ліцей інформаційних технологій Дніпровської міської ради</p>
+                        <p>м. Дніпро</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="footer-bottom">
+                &copy; 2026 Віртуальний музей побутових предметів. Усі права захищено.
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
